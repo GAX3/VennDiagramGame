@@ -7,7 +7,7 @@ apply plugin: 'kotlin-kapt'
 
 android {
     namespace 'com.example.venndiagramgameapp'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.example.venndiagramgameapp"
