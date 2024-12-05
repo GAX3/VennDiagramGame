@@ -5,14 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.example.venndiagramgameapp.R
 import com.example.venndiagramgameapp.databinding.FragmentHomeBinding
+import com.example.venndiagramgameapp.viewmodel.UserViewModel
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel by lazy { UserViewModel() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +29,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.btnGame.setOnClickListener {
+            view.findNavController().navigate(R.id.gameOptionsFragment)
+        }
+
+        viewModel.currentUser = "XD"
 
         Glide.with(this)
             .asGif()

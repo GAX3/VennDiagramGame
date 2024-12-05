@@ -8,6 +8,16 @@
         android:id="@+id/homeFragment"
         android:name="com.example.venndiagramgameapp.fragments.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_gameOptionsFragement"
+            app:destination="@id/gameOptionsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gameOptionsFragment"
+        android:name="com.example.venndiagramgameapp.fragments.GamesOptionFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_games_option"/>
 
 </navigation>
