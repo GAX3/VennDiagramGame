@@ -1,0 +1,96 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- Diagrama de Venn -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- Círculo 1 -->
+        <View
+            android:id="@+id/circle1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/circle_blue" />
+
+        <!-- Círculo 2 -->
+        <View
+            android:id="@+id/circle2"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/circle_red" />
+
+        <!-- Intersección -->
+        <View
+            android:id="@+id/intersection"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_purple">
+
+
+        </View>
+    </RelativeLayout>
+
+    <!-- Elementos a clasificar -->
+    <LinearLayout
+        android:id="@+id/elementsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/element1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Águila"
+            android:padding="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/element2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delfín"
+            android:padding="8dp"
+             />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/element3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pato"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+    <!-- Puntuación -->
+    <TextView
+        android:id="@+id/scoreView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:text="Puntuación: 0"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:padding="16dp" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:text="Animales"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:padding="64dp" />
+</FrameLayout>
