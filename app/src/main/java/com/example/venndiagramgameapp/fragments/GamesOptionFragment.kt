@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,16 +20,19 @@ import com.example.venndiagramgameapp.RetrofitClient
 import com.example.venndiagramgameapp.adapters.ClassInformationAdapter
 import com.example.venndiagramgameapp.databinding.FragmentGamesOptionBinding
 import com.example.venndiagramgameapp.databinding.FragmentHomeBinding
+import com.example.venndiagramgameapp.viewmodel.UserViewModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class GamesOptionFragment : Fragment() {
+class GamesOptionFragment : Fragment(), ClassInformationAdapter.OnCardClickListener {
 
     private var _binding: FragmentGamesOptionBinding? = null
     private val binding get() = _binding
+
+    private val viewModel: UserViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,52 +55,20 @@ class GamesOptionFragment : Fragment() {
   {
     "id": "1",
     "title": "Introduction to Android Development",
-    "description": "A beginner's course on Android app development using Kotlin."
+    "description": "A beginner's course on Android app development using Kotlin.",
+    "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/ProfilePics/01.PNG"
   },
   {
     "id": "2",
     "title": "Mastering Java",
-    "description": "An advanced course on Java programming for software engineers."
+    "description": "An advanced course on Java programming for software engineers.",
+    "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/ProfilePics/01.PNG"
   },
   {
     "id": "3",
     "title": "Web Development Essentials",
-    "description": "Learn the basics of HTML, CSS, and JavaScript to build websites."
-  },
-  {
-    "id": "4",
-    "title": "Data Science with Python",
-    "description": "A comprehensive guide to data analysis and machine learning using Python."
-  },
-  {
-    "id": "5",
-    "title": "Digital Marketing 101",
-    "description": "Understand the fundamentals of digital marketing and SEO."
-  },
-  {
-    "id": "6",
-    "title": "UI/UX Design Principles",
-    "description": "Learn how to design user-friendly and visually appealing interfaces."
-  },
-  {
-    "id": "7",
-    "title": "Cybersecurity Basics",
-    "description": "An introduction to cybersecurity concepts and practices."
-  },
-  {
-    "id": "8",
-    "title": "Cloud Computing Fundamentals",
-    "description": "Explore the basics of cloud services and infrastructure."
-  },
-  {
-    "id": "9",
-    "title": "Mobile App Development",
-    "description": "Create mobile apps using Flutter and Dart programming."
-  },
-  {
-    "id": "10",
-    "title": "Game Development with Unity",
-    "description": "Build 2D and 3D games using the Unity engine."
+    "description": "Learn the basics of HTML, CSS, and JavaScript to build websites.",
+    "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/ProfilePics/01.PNG"
   }
 ]
         """
@@ -104,8 +77,13 @@ class GamesOptionFragment : Fragment() {
 
         val recyclerView: RecyclerView = binding!!.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
-        recyclerView.adapter = ClassInformationAdapter(personList)
+        recyclerView.adapter = ClassInformationAdapter(personList, this)
 
+    }
+
+    override fun onCardClick(item: ClassInformation) {
+        viewModel.currentoption = ClassInformation(item.id, item.title, item.description, item.imgLink)
+        findNavController().navigate(R.id.conjuctDetailFragment)
     }
 
     fun parseJson(json: String): List<ClassInformation> {

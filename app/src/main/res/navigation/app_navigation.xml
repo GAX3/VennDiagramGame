@@ -18,6 +18,16 @@
         android:id="@+id/gameOptionsFragment"
         android:name="com.example.venndiagramgameapp.fragments.GamesOptionFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_games_option"/>
+        tools:layout="@layout/fragment_games_option">
+        <action
+            android:id="@+id/action_gameOptionsFragment_to_conjuctDetailFragment"
+            app:destination="@id/conjuctDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/conjuctDetailFragment"
+        android:name="com.example.venndiagramgameapp.fragments.ConjunctDetailFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_conjunto_detail"/>
 
 </navigation>
