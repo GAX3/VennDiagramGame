@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#aed6f1"
-    tools:context=".fragments.GamesOptionFragment">
+    tools:context=".fragments.partOne.GamesOptionFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

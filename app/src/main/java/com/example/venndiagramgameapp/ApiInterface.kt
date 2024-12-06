@@ -1,7 +1,6 @@
 package com.example.venndiagramgameapp
 
-import retrofit2.http.GET
-import retrofit2.http.Path
+import com.example.venndiagramgameapp.entities.ClassInformation
 
 interface ApiService {
 

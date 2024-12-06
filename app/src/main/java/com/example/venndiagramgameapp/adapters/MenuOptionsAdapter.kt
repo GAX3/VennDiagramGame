@@ -7,11 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.venndiagramgameapp.entities.ClassInformation
 import com.example.venndiagramgameapp.R
+import com.example.venndiagramgameapp.entities.MenuOption
 
-class ClassInformationAdapter(private val itemList: List<ClassInformation>, private val onCardClickListener: OnCardClickListener) :
-    RecyclerView.Adapter<ClassInformationAdapter.ItemViewHolder>() {
+
+class MenuOptionsAdapter(private val itemList: List<MenuOption>, private val onCardClickListener: OnCardClickListener) :
+    RecyclerView.Adapter<MenuOptionsAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val img: ImageView = view.findViewById(R.id.imageView)
@@ -42,7 +43,7 @@ class ClassInformationAdapter(private val itemList: List<ClassInformation>, priv
     override fun getItemCount(): Int = itemList.size
 
     interface OnCardClickListener {
-        fun onCardClick(item: ClassInformation)
+        fun onCardClick(item: MenuOption)
     }
 
 }

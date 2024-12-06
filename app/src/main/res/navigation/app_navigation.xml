@@ -10,13 +10,13 @@
         android:label="Home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_gameOptionsFragement"
+            android:id="@+id/action_homeFragment_to_gameOptionsFragment"
             app:destination="@id/gameOptionsFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/gameOptionsFragment"
-        android:name="com.example.venndiagramgameapp.fragments.GamesOptionFragment"
+        android:name="com.example.venndiagramgameapp.fragments.partOne.GamesOptionFragment"
         android:label="Home"
         tools:layout="@layout/fragment_games_option">
         <action
@@ -26,7 +26,7 @@
 
     <fragment
         android:id="@+id/conjuctDetailFragment"
-        android:name="com.example.venndiagramgameapp.fragments.ConjunctDetailFragment"
+        android:name="com.example.venndiagramgameapp.fragments.partOne.ConjunctDetailFragment"
         android:label="Home"
         tools:layout="@layout/fragment_conjunto_detail"/>
 

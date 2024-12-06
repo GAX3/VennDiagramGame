@@ -1,4 +1,4 @@
-package com.example.venndiagramgameapp
+package com.example.venndiagramgameapp.entities
 
 data class ClassInformation(
     val id: String,

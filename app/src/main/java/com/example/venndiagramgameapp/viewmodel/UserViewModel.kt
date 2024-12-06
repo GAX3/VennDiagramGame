@@ -1,7 +1,7 @@
 package com.example.venndiagramgameapp.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.venndiagramgameapp.ClassInformation
+import com.example.venndiagramgameapp.entities.ClassInformation
 
 class UserViewModel() : ViewModel() {
 

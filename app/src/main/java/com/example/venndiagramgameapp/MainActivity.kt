@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.venndiagramgameapp.databinding.ActivityMainBinding
+import com.example.venndiagramgameapp.entities.ClassInformation
 
 class MainActivity : AppCompatActivity() {
 

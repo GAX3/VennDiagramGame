@@ -1,31 +1,22 @@
-package com.example.venndiagramgameapp.fragments
+package com.example.venndiagramgameapp.fragments.partOne
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.venndiagramgameapp.ApiService
-import com.example.venndiagramgameapp.ClassInformation
+import com.example.venndiagramgameapp.entities.ClassInformation
 import com.example.venndiagramgameapp.R
-import com.example.venndiagramgameapp.RetrofitClient
 import com.example.venndiagramgameapp.adapters.ClassInformationAdapter
 import com.example.venndiagramgameapp.databinding.FragmentGamesOptionBinding
-import com.example.venndiagramgameapp.databinding.FragmentHomeBinding
 import com.example.venndiagramgameapp.viewmodel.UserViewModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class GamesOptionFragment : Fragment(), ClassInformationAdapter.OnCardClickListener {
 

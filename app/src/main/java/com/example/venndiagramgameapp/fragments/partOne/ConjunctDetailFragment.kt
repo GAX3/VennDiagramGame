@@ -1,4 +1,4 @@
-package com.example.venndiagramgameapp.fragments
+package com.example.venndiagramgameapp.fragments.partOne
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
-import com.example.venndiagramgameapp.R
 import com.example.venndiagramgameapp.databinding.FragmentConjuntoDetailBinding
-import com.example.venndiagramgameapp.databinding.FragmentGamesOptionBinding
 import com.example.venndiagramgameapp.viewmodel.UserViewModel
 
 class ConjunctDetailFragment : Fragment() {
