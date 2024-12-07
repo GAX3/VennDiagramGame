@@ -87,7 +87,7 @@ class GamesOptionFragment : Fragment(), ClassInformationAdapter.OnCardClickListe
             {
                 "id": "1",
                 "title": "Unión",
-                "description": "Se obtiene el conjunto de todos los elementos de los conjuntos dados.",
+                "description": "Cada círculo o elipse representa una categoría. La unión de dos conjuntos está representada por ∪. (No confundas este símbolo con la letra “u”). \nEste es un diagrama de Venn de dos círculos. El círculo verde es A y el círculo azul es B. El diagrama de Venn completo representa la unión de A y B, o bien, A ∪ B. Puedes hacer clic sobre la imagen para probar este diagrama como plantilla.",
                 "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/ProfilePics/01.PNG"
             },
             {
