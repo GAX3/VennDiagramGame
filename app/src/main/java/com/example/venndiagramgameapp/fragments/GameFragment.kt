@@ -1,8 +1,8 @@
 package com.example.venndiagramgameapp.fragments
 
 import android.annotation.SuppressLint
+import android.media.MediaPlayer
 import android.os.Bundle
-import android.os.Handler
 import android.view.DragEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,7 +14,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.venndiagramgameapp.R
 import com.example.venndiagramgameapp.databinding.FragmentGameBinding
-import com.example.venndiagramgameapp.databinding.FragmentGamesOptionBinding
 import com.example.venndiagramgameapp.viewmodel.UserViewModel
 
 class GameFragment : Fragment() {
@@ -27,10 +26,13 @@ class GameFragment : Fragment() {
     private var score = 0
     private lateinit var scoreView: TextView
 
+    private var mediaPlayerOk: MediaPlayer? = null
+    private var mediaPlayerNo: MediaPlayer? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         val view = binding!!.root
         return view
@@ -39,6 +41,8 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mediaPlayerOk = MediaPlayer.create(requireContext(), R.raw.success)
+        mediaPlayerNo = MediaPlayer.create(requireContext(), R.raw.fail)
         // Inicializar la puntuación
         scoreView = binding!!.scoreView
 
@@ -72,6 +76,7 @@ class GameFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun unionGame(){
         //Set Texts
+        binding!!.trash.visibility = View.GONE
 
         binding!!.question.text = "A: {1, 2, 3, 4} \nB: {3, 4, 5, 6} \nA∪B={1,2,3,4,5,6}"
 
@@ -104,12 +109,11 @@ class GameFragment : Fragment() {
         val circle1 = binding!!.circle1
         val circle2 = binding!!.circle2
         val intersection = binding!!.intersection
-        val trash = binding!!.trash
 
         val targets = mapOf(
             circle1 to setOf("1", "2"),
             circle2 to setOf("5", "6"),
-            intersection to setOf("3", "4",)
+            intersection to setOf("3", "4")
         )
 
         targets.keys.forEach { target ->
@@ -121,12 +125,14 @@ class GameFragment : Fragment() {
 
                         if (targets[target]?.contains(itemName) == true) {
                             Toast.makeText(requireActivity(), "¡Correcto!", Toast.LENGTH_SHORT).show()
-                            incrementScore(10)
+                            incrementScore()
+                            playOkSound()
                             draggedView.visibility = View.GONE
                             if(score == 60){
                                 binding!!.cvEnd.visibility = View.VISIBLE
                             }
                         } else {
+                            playNoSound()
                             Toast.makeText(requireActivity(), "¡Incorrecto!", Toast.LENGTH_SHORT).show()
                         }
                         true
@@ -138,6 +144,7 @@ class GameFragment : Fragment() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun intersectionGame() {
         //Set Texts
         binding!!.question.text = "Intersección\n\nA: {1, 2, 3, 4} \nB: {3, 4, 5, 6} \nA∩B={3,4}"
@@ -176,7 +183,7 @@ class GameFragment : Fragment() {
         val targets = mapOf(
             circle1 to setOf(),
             circle2 to setOf(),
-            intersection to setOf("3", "4",),
+            intersection to setOf("3", "4"),
             trash to setOf("1", "2", "5", "6")
         )
 
@@ -189,12 +196,14 @@ class GameFragment : Fragment() {
 
                         if (targets[target]?.contains(itemName) == true) {
                             Toast.makeText(requireActivity(), "¡Correcto!", Toast.LENGTH_SHORT).show()
-                            incrementScore(10)
+                            incrementScore()
                             draggedView.visibility = View.GONE
+                            playOkSound()
                             if(score == 60){
                                 binding!!.cvEnd.visibility = View.VISIBLE
                             }
                         } else {
+                            playNoSound()
                             Toast.makeText(requireActivity(), "¡Incorrecto!", Toast.LENGTH_SHORT).show()
                         }
                         true
@@ -205,6 +214,7 @@ class GameFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun diferenciaGame() {
         //Set Texts
         binding!!.question.text = "Diferencia: Campeones Mundiales futbol femenino y masculino\n\nM: {Brasil, Alemania, Italia} \nF: {USA, Alemania, Noruega} \nF-M={USA,Noruega} \n\n"
@@ -241,7 +251,7 @@ class GameFragment : Fragment() {
 
         val targets = mapOf(
             circle1 to setOf(),
-            circle2 to setOf("USA", "Noruega",),
+            circle2 to setOf("USA", "Noruega"),
             intersection to setOf(),
             trash to setOf("Brasil", "Italia", "Alemania")
         )
@@ -255,12 +265,14 @@ class GameFragment : Fragment() {
 
                         if (targets[target]?.contains(itemName) == true) {
                             Toast.makeText(requireActivity(), "¡Correcto!", Toast.LENGTH_SHORT).show()
-                            incrementScore(10)
+                            incrementScore()
                             draggedView.visibility = View.GONE
+                            playOkSound()
                             if(score == 50){
                                 binding!!.cvEnd.visibility = View.VISIBLE
                             }
                         } else {
+                            playNoSound()
                             Toast.makeText(requireActivity(), "¡Incorrecto!", Toast.LENGTH_SHORT).show()
                         }
                         true
@@ -272,6 +284,7 @@ class GameFragment : Fragment() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun complementGame() {
         //Set Texts
         binding!!.question.text = "Complemento\n\nUniverso: {Rosa,Girasol,Lirio,Dama de noche,Jazmin,Flor de cacto} \n\nA={Rosa,Girasol,Lirio} \nAc={Dama de noche, Jazmin, Flor de cacto}"
@@ -320,12 +333,14 @@ class GameFragment : Fragment() {
 
                         if (targets[target]?.contains(itemName) == true) {
                             Toast.makeText(requireActivity(), "¡Correcto!", Toast.LENGTH_SHORT).show()
-                            incrementScore(10)
+                            incrementScore()
                             draggedView.visibility = View.GONE
+                            playOkSound()
                             if(score == 60){
                                 binding!!.cvEnd.visibility = View.VISIBLE
                             }
                         } else {
+                            playNoSound()
                             Toast.makeText(requireActivity(), "¡Incorrecto!", Toast.LENGTH_SHORT).show()
                         }
                         true
@@ -336,9 +351,35 @@ class GameFragment : Fragment() {
         }
     }
 
-    private fun incrementScore(points: Int) {
-        score += points
+    private fun playOkSound(){
+        if (mediaPlayerOk!!.isPlaying) {
+            mediaPlayerOk!!.stop()
+            mediaPlayerOk!!.prepare() // Prepare it again to play the same sound
+        }
+        mediaPlayerOk!!.start() // Play the sound
+    }
+
+    private fun playNoSound(){
+        if (mediaPlayerNo!!.isPlaying) {
+            mediaPlayerNo!!.stop()
+            mediaPlayerNo!!.prepare() // Prepare it again to play the same sound
+        }
+        mediaPlayerNo!!.start() // Play the sound
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun incrementScore() {
+        score += 10
         scoreView.text = "Puntuación: $score"
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // Release MediaPlayers
+        mediaPlayerOk?.release()
+        mediaPlayerOk = null
+
+        mediaPlayerNo?.release()
+        mediaPlayerNo = null
+    }
 }
