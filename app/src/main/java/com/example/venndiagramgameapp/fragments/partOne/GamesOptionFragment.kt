@@ -109,16 +109,50 @@ class GamesOptionFragment : Fragment(), ClassInformationAdapter.OnCardClickListe
                 "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/ProfilePics/01.PNG"
             }
         ]""".trimIndent()
-        val json4 = ""
+        val json4 = """        
+            [
+            {
+                "id": "1",
+                "title": "Unión",
+                "description": "",
+                "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/ProfilePics/01.PNG"
+            },
+            {
+                "id": "2",
+                "title": "Intersección",
+                "description": "",
+                "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/ProfilePics/01.PNG"
+            },
+            {
+                "id": "3",
+                "title": "Diferencia",
+                "description": "",
+                "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/ProfilePics/01.PNG"
+            },
+            {
+                "id": "4",
+                "title": "Complemento",
+                "description": "",
+                "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/ProfilePics/01.PNG"
+            }
+        ]""".trimIndent()
 
 
 
 
         when(viewModel.menuSelectedOption){
-            1->{json = json1}
-            2->{json = json2}
-            3->{json = json3}
-            4->{json = json4}
+            1->{json = json1
+                binding!!.txtHome.text = "Conjunto definiciones"
+            }
+            2->{json = json2
+                binding!!.txtHome.text = "Tipo de conjuntos"
+            }
+            3->{json = json3
+                binding!!.txtHome.text = "Operaciones con conjuntos"
+            }
+            4->{json = json4
+                binding!!.txtHome.text = "Juegos Diagrama de Venn"
+            }
             else->{}
         }
 

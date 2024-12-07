@@ -28,7 +28,13 @@ class ClassInformationAdapter(private val itemList: List<ClassInformation>, priv
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = itemList[position]
         holder.textView.text = item.title
-        holder.textViewDesc.text = item.description
+
+        if (item.description != ""){
+            holder.textViewDesc.text = item.description
+        }else{
+            holder.textViewDesc.visibility = View.GONE
+        }
+
         holder.textViewDesc.maxLines = 3
 
         Glide.with(holder.itemView.context)
