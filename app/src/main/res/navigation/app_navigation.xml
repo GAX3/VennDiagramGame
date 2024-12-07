@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_gameOptionsFragment_to_conjuctDetailFragment"
             app:destination="@id/conjuctDetailFragment" />
+        <action
+            android:id="@+id/action_gameOptionsFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
     </fragment>
 
     <fragment
@@ -29,5 +32,11 @@
         android:name="com.example.venndiagramgameapp.fragments.partOne.ConjunctDetailFragment"
         android:label="Home"
         tools:layout="@layout/fragment_conjunto_detail"/>
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.venndiagramgameapp.fragments.GameFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_game"/>
 
 </navigation>

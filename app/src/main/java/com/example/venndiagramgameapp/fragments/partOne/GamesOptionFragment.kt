@@ -167,7 +167,12 @@ class GamesOptionFragment : Fragment(), ClassInformationAdapter.OnCardClickListe
 
     override fun onCardClick(item: ClassInformation) {
         viewModel.currentoption = ClassInformation(item.id, item.title, item.description, item.imgLink)
-        findNavController().navigate(R.id.conjuctDetailFragment)
+
+        if (viewModel.menuSelectedOption == 4){
+            findNavController().navigate(R.id.gameFragment)
+        }else{
+            findNavController().navigate(R.id.conjuctDetailFragment)
+        }
     }
 
     fun parseJson(json: String): List<ClassInformation> {
