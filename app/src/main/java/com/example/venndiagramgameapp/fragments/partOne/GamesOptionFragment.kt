@@ -140,7 +140,7 @@ class GamesOptionFragment : Fragment(), ClassInformationAdapter.OnCardClickListe
                 "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/VennDiagram/Juego/02.png"
             },
             {
-                "id": "3",|1
+                "id": "3",
                 "title": "Diferencia",
                 "description": "Se obtiene el conjunto de elementos de un conjunto que no están presentes en otro.",
                 "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/VennDiagram/Juego/03.png"
