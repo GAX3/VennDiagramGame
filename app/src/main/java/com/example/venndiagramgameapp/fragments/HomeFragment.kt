@@ -54,19 +54,19 @@ class HomeFragment : Fragment(), MenuOptionsAdapter.OnCardClickListener {
     "id": "2",
     "title": "Tipo de conjuntos",
     "description": "Clase de conjuntos especiales: vacío, unitario, infinito, universal; Relaciones entre conjuntos, Igualdad de conjuntos, Conjunto potencia, Conjunto Númerico.",
-    "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/VennDiagram/Menu/Slide1.gif"
+    "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/VennDiagram/Menu/Slide2.gif"
   },
   {
     "id": "3",
     "title": "Operaciones con conjuntos",
     "description": "Unión, Intersección, Diferencia, Complemento.",
-    "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/ProfilePics/01.PNG"
+    "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/VennDiagram/Menu/Slide3.jpg"
   },
   {
     "id": "4",
     "title": "Juegos Diagrama de Venn",
     "description": "Juegos lúdicos aplicando los Diagramas de Venn.",
-    "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/VennDiagram/Menu/pacman.gif"
+    "imgLink": "https://raw.githubusercontent.com/GAX3/assets/refs/heads/main/VennDiagram/Menu/Slide4.gif"
   }
 ]
         """
@@ -80,11 +80,8 @@ class HomeFragment : Fragment(), MenuOptionsAdapter.OnCardClickListener {
     }
 
     override fun onCardClick(item: MenuOption) {
-        when(item.id){
-            1 -> findNavController().navigate(R.id.action_homeFragment_to_gameOptionsFragment)
-            else -> Log.i("LOGGG", "ELSE")
-        }
-
+        viewModel.menuSelectedOption = item.id
+        findNavController().navigate(R.id.action_homeFragment_to_gameOptionsFragment)
     }
 
     fun parseJson(json: String): List<MenuOption> {

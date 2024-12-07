@@ -41,7 +41,9 @@ class GamesOptionFragment : Fragment(), ClassInformationAdapter.OnCardClickListe
             findNavController().popBackStack()
         }
 
-        val json = """
+        var json = ""
+
+        val json1 = """
 [
   {
     "id": "1",
@@ -63,6 +65,19 @@ class GamesOptionFragment : Fragment(), ClassInformationAdapter.OnCardClickListe
   }
 ]
         """
+
+        val json2 = ""
+        val json3 = ""
+        val json4 = ""
+
+        when(viewModel.menuSelectedOption){
+            1->{json = json1}
+            2->{json = json2}
+            3->{json = json3}
+            4->{json = json4}
+            else->{}
+        }
+
 
         val personList = parseJson(json)
 
