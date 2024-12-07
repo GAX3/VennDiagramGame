@@ -170,29 +170,31 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvEnd"
-        android:visibility="gone"
         android:layout_width="350dp"
         android:layout_height="350dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="#aed6f1"
         android:elevation="16dp"
-        android:layout_gravity="center_horizontal|center_vertical">
+        tools:visibility="visible"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/Ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:src="@drawable/delete"
             android:text="Felicidades"
-            android:textSize="18sp"
-            android:src="@drawable/delete"/>
+            android:layout_marginBottom="48dp"
+            android:textSize="36dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnEnd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delfín"
             android:layout_gravity="center"
             android:layout_marginTop="48dp"
-            />
+            android:text="Fin" />
 
     </androidx.cardview.widget.CardView>
 </FrameLayout>

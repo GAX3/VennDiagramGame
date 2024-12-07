@@ -123,6 +123,9 @@ class GameFragment : Fragment() {
                             Toast.makeText(requireActivity(), "¡Correcto!", Toast.LENGTH_SHORT).show()
                             incrementScore(10)
                             draggedView.visibility = View.GONE
+                            if(score == 60){
+                                binding!!.cvEnd.visibility = View.VISIBLE
+                            }
                         } else {
                             Toast.makeText(requireActivity(), "¡Incorrecto!", Toast.LENGTH_SHORT).show()
                         }
@@ -132,9 +135,7 @@ class GameFragment : Fragment() {
                 }
             }
         }
-        if(score == 60){
-            binding!!.cvEnd.visibility = View.VISIBLE
-        }
+
     }
 
     private fun intersectionGame() {
@@ -190,6 +191,9 @@ class GameFragment : Fragment() {
                             Toast.makeText(requireActivity(), "¡Correcto!", Toast.LENGTH_SHORT).show()
                             incrementScore(10)
                             draggedView.visibility = View.GONE
+                            if(score == 60){
+                                binding!!.cvEnd.visibility = View.VISIBLE
+                            }
                         } else {
                             Toast.makeText(requireActivity(), "¡Incorrecto!", Toast.LENGTH_SHORT).show()
                         }
@@ -198,9 +202,6 @@ class GameFragment : Fragment() {
                     else -> true
                 }
             }
-        }
-        if(score == 60){
-            binding!!.cvEnd.visibility = View.VISIBLE
         }
     }
 
@@ -256,6 +257,9 @@ class GameFragment : Fragment() {
                             Toast.makeText(requireActivity(), "¡Correcto!", Toast.LENGTH_SHORT).show()
                             incrementScore(10)
                             draggedView.visibility = View.GONE
+                            if(score == 50){
+                                binding!!.cvEnd.visibility = View.VISIBLE
+                            }
                         } else {
                             Toast.makeText(requireActivity(), "¡Incorrecto!", Toast.LENGTH_SHORT).show()
                         }
@@ -265,9 +269,7 @@ class GameFragment : Fragment() {
                 }
             }
         }
-        if(score == 50){
-            binding!!.cvEnd.visibility = View.VISIBLE
-        }
+
     }
 
     private fun complementGame() {
@@ -320,6 +322,9 @@ class GameFragment : Fragment() {
                             Toast.makeText(requireActivity(), "¡Correcto!", Toast.LENGTH_SHORT).show()
                             incrementScore(10)
                             draggedView.visibility = View.GONE
+                            if(score == 60){
+                                binding!!.cvEnd.visibility = View.VISIBLE
+                            }
                         } else {
                             Toast.makeText(requireActivity(), "¡Incorrecto!", Toast.LENGTH_SHORT).show()
                         }
@@ -328,9 +333,6 @@ class GameFragment : Fragment() {
                     else -> true
                 }
             }
-        }
-        if(score == 60){
-            binding!!.cvEnd.visibility = View.VISIBLE
         }
     }
 
