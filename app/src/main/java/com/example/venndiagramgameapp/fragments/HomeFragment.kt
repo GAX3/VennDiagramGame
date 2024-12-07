@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.venndiagramgameapp.R
 import com.example.venndiagramgameapp.adapters.MenuOptionsAdapter
 import com.example.venndiagramgameapp.databinding.FragmentGamesOptionBinding
+import com.example.venndiagramgameapp.databinding.FragmentHomeBinding
 import com.example.venndiagramgameapp.entities.MenuOption
 import com.example.venndiagramgameapp.viewmodel.UserViewModel
 import com.google.gson.Gson
@@ -21,7 +22,7 @@ import com.google.gson.reflect.TypeToken
 
 class HomeFragment : Fragment(), MenuOptionsAdapter.OnCardClickListener {
 
-    private var _binding: FragmentGamesOptionBinding? = null
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding
 
     private val viewModel: UserViewModel by activityViewModels()
@@ -30,7 +31,7 @@ class HomeFragment : Fragment(), MenuOptionsAdapter.OnCardClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentGamesOptionBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding!!.root
         return view
     }

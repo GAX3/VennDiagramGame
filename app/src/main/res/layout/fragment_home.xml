@@ -5,139 +5,32 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#aed6f1"
-    tools:context=".fragments.HomeFragment">
+    tools:context=".fragments.partOne.GamesOptionFragment">
 
-    <LinearLayout
-        android:background="@color/white"
-        android:id="@+id/card1"
-        android:elevation="8dp"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="8dp"
+    <TextView
+        android:id="@+id/txtHome"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:textSize="24dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:text="MENÚ" />
 
-        <!-- ImageView for the image -->
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/fondo"
-            android:scaleType="centerCrop" />
-
-        <!-- Title TextView -->
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Title"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp" />
-
-        <!-- Description TextView -->
-        <TextView
-            android:id="@+id/descriptionTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="This is the description of the item."
-            android:textSize="14sp"
-            android:layout_marginTop="4dp"
-            android:textColor="@android:color/darker_gray" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:background="@color/white"
-        android:id="@+id/card2"
-        android:elevation="8dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtHome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginVertical="8dp"
         android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/card1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <!-- ImageView for the image -->
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/fondo"
-            android:scaleType="centerCrop" />
-
-        <!-- Title TextView -->
-        <TextView
-            android:id="@+id/titleTextView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Title"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp" />
-
-        <!-- Description TextView -->
-        <TextView
-            android:id="@+id/descriptionTextView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="This is the description of the item."
-            android:textSize="14sp"
-            android:layout_marginTop="4dp"
-            android:textColor="@android:color/darker_gray" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:background="@color/white"
-        android:id="@+id/card3"
-        android:elevation="8dp"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/card2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <!-- ImageView for the image -->
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/fondo"
-            android:scaleType="centerCrop" />
-
-        <!-- Title TextView -->
-        <TextView
-            android:id="@+id/titleTextView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Title"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp" />
-
-        <!-- Description TextView -->
-        <TextView
-            android:id="@+id/descriptionTextView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="This is the description of the item."
-            android:textSize="14sp"
-            android:layout_marginTop="4dp"
-            android:textColor="@android:color/darker_gray" />
-
-    </LinearLayout>
+        tools:listitem="@layout/item_layout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

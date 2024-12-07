@@ -29,6 +29,7 @@ class ClassInformationAdapter(private val itemList: List<ClassInformation>, priv
         val item = itemList[position]
         holder.textView.text = item.title
         holder.textViewDesc.text = item.description
+        holder.textViewDesc.maxLines = 3
 
         Glide.with(holder.itemView.context)
             .load(item.imgLink)

@@ -37,7 +37,7 @@ class ConjunctDetailFragment : Fragment() {
             .into(binding!!.imageView)
 
         binding!!.titleTextView.text = viewModel.currentoption!!.title!!
-        binding!!.descriptionTextView.text = viewModel.currentoption!!.title!!
+        binding!!.descriptionTextView.text = viewModel.currentoption!!.description!!
     }
 
 }

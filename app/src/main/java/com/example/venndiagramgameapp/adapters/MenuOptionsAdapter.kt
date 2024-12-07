@@ -30,6 +30,7 @@ class MenuOptionsAdapter(private val itemList: List<MenuOption>, private val onC
         val item = itemList[position]
         holder.textView.text = item.title
         holder.textViewDesc.text = item.description
+        holder.textViewDesc.maxLines = 3
 
         Glide.with(holder.itemView.context)
             .load(item.imgLink)
